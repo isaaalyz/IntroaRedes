@@ -10,8 +10,8 @@ def start_server (host: str, port: int):
     print(message)
 
     client_socket.close()
-
-if__name__=='__main__':
+    
+if __name__=='__main__':
     HOST = 'locahoost'
     PORT = 8000
 
