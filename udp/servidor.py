@@ -1,4 +1,5 @@
 import socket
+import json
 
 def start_server(host: str, port: int):
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -10,7 +11,11 @@ def start_server(host: str, port: int):
     while True:
         data, adress = server_socket.recvfrom(1024)
         message = data.decode('utf-8')
-        print(f'[CLIENTE]: {message}') 
+
+        name = message.split("!=")[0]
+        message = message.split("!=")[1]
+
+        print(f'[{name.upper()}]: {message}') 
 
 if __name__=='__main__':
     HOST = 'localhost'
